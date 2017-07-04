@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "0.45.0",
     "jest-expo": "~18.0.0",
