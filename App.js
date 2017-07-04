@@ -10,9 +10,11 @@ import ContainerTest from './src/components/ContainerTest';
 
 const logger = createLogger({ predicate: (getState, action) => __DEV__ });
 
+const store = createStore(reducers, applyMiddleware(logger));
+
 const App = () => {
   return (
-    <Provider store={createStore(reducers, applyMiddleware(logger))}>
+    <Provider store={store}>
       <View>
         <Header headerText="ZenFocus" />
         <ContainerTest />
