@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "0.0.40",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "0.45.0",
     "jest-expo": "~18.0.0",
+    "pre-commit": "^1.2.2",
+    "react-native-scripts": "0.0.40",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -13,11 +16,20 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "flow start": "flow start",
+    "flow stop": "flow stop",
+    "flow status": "flow status",
+    "flow coverage": "flow coverage",
+    "flow:precommit": "flow; test $? -eq 1 -o $? -eq 2 && exit 1 || exit 0"
   },
   "jest": {
     "preset": "jest-expo"
   },
+  "precommit.silent": true,
+  "pre-commit": [
+    "flow:precommit"
+  ],
   "dependencies": {
     "expo": "^18.0.3",
     "react": "16.0.0-alpha.12",
